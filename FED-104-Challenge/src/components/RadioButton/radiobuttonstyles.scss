@@ -1,0 +1,55 @@
+.query-group {
+  margin-bottom: 1rem;
+}
+
+.queryOption {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem 0rem 0.5rem 0rem;
+  justify-content: space-between;
+}
+
+.query-option-item {
+  display: flex;
+  border: 1px solid var(--grey-medium);
+  padding: 10px;
+  border-radius: 0.4rem;
+  align-items: center;
+  gap: 1rem;
+  font-size: 16px;
+  font-family: var(--ff-variable);
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-within {
+    background-color: var(--green-lighter);
+    border-color: var(--green-medium);
+    outline: none;
+  }
+}
+
+.queryOption input[type="radio"] + label {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.queryOption [type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 21px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid var(--grey-medium);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.queryOption input[type="radio"]:checked {
+  background-image: var(--radiobutton-img);
+  border: 0;
+}

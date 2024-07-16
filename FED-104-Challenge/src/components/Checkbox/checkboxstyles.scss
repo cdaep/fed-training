@@ -1,0 +1,31 @@
+.checkbox-group {
+  margin: 2.5rem 0rem 2.5rem 0.2rem;
+}
+
+.checkbox-direction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 15px;
+  font-family: var(--ff-variable);
+  margin-bottom: 0.5rem;
+
+  input[type="checkbox"] + label {
+    cursor: pointer;
+  }
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 21px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid var(--grey-medium);
+
+  &:checked {
+    background-image: var(--checkbox-img);
+    border: 0;
+  }
+}

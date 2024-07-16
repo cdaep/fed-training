@@ -1,0 +1,308 @@
+/* Define font faces */
+@font-face {
+  font-family: 'Karla Bold';
+  src: url('../src/assets/fonts/Karla-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla Regular';
+  src: url('../src/assets/fonts/Karla-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla Italic Variable';
+  src: url('../src/assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Karla Variable';
+  src: url('../src/assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes fadeInTranslate {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Define root variables */
+:root {
+  --grey-medium: hsl(186, 15%, 59%);
+  --grey-darker: hsl(187, 24%, 22%);
+  --green-lighter: hsl(148, 38%, 91%);
+  --green-medium: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+  --white: hsl(0, 0%, 100%);
+  --ff-default: 'Karla', sans-serif; /* Default font family */
+  --ff-italic: 'Karla Italic Variable', sans-serif; /* Italic font family */
+  --ff-bold: 'Karla Bold', sans-serif; /* Bold font family */
+  --ff-variable: 'Karla Variable', sans-serif; /* Variable font family */
+  --checkbox-img: url("../public/icon-checkbox-check.svg");
+  --radiobutton-img: url("../public/icon-radio-selected.svg");
+}
+
+/* General HTML styling */
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+/* Body styling */
+body {
+  font-family: var(--ff-default);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: var(--green-lighter);
+  min-height: 100vh;
+}
+
+/* Form container */
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40vw;
+  background-color: var(--white);
+  border-radius: 1rem;
+  margin: 5rem;
+}
+
+/* Form header */
+.form-container h1 {
+  color: var(--grey-darker);
+  margin: 2rem 0 0 2rem;
+}
+
+/* Message box styling */
+.form-container .message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-container .message-box textarea {
+  resize: none;
+  border-radius: 0.4rem;
+  border: 1px solid var(--grey-medium);
+  font-size: 16px;
+  font-family: var(--ff-variable);
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border-color: var(--green-medium);
+  }
+}
+
+/* Form inputs */
+.form-container .form {
+  margin: 2rem;
+}
+
+.form-container .form .form-input {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-container .email-group {
+  margin-bottom: 1rem;
+}
+
+.form-container .name {
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.form-container .name-group {
+  flex: 1;
+  flex-direction: column;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"] {
+  width: 100%;
+  border: 1px solid var(--grey-medium);
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--ff-variable);
+  padding-left: 1rem;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: var(--green-medium);
+    outline: none;
+  }
+
+  &:hover {
+    border-color: var(--green-medium);
+  }
+}
+
+/* Form labels */
+.form-container .form-label {
+  font-family: var(--ff-variable);
+  font-size: 15px;
+  color: var(--grey-darker);
+  border: 0;
+  display: block;
+}
+
+.form-container .below-header,
+.form-container .email-text {
+  margin-bottom: 0.5rem;
+}
+
+/* Required field indicator */
+.form-container .required {
+  color: var(--green-medium);
+  margin-left: 5px;
+}
+
+/* Error State*/ 
+.form-container .error-state {
+  font-family: var(--ff-variable);
+  font-size: 15px;
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+.form-container .error-border {
+  border-color: var(--red);
+}
+
+.form-container .form-input.error,
+.form-container .text-area.error {
+  border-color: var(--red);
+
+  &:hover {
+    border-color: var(--red);
+  }
+}
+
+textarea.text-area {
+  resize: none;
+}
+
+/* Additional styles */
+.form-container .horizontal-content {
+  display: flex;
+  gap: 0.6rem;
+  place-self: flex-start;
+  margin: 0.5rem 0;
+}
+
+.form-container .horizontal-content p {
+  font-family: var(--ff-bold);
+  margin: 0;
+}
+
+.form-container .modal-content {
+  background-color: var(--grey-darker);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 23.5rem;
+  height: 3.5rem;
+  margin: auto;
+  flex-direction: column;
+}
+
+.form-container .modal-content .contentP {
+  font-size: 15px;
+  margin: 0;
+  font-family: var(--ff-regular);
+  text-align: left;
+}
+
+.form-container .icon {
+  margin-right: 10px;
+}
+
+.form-container .icon img {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .form-container {
+    width: 100%;
+    margin: 3rem 1rem;
+  }
+
+  .form-container .name {
+    flex-direction: column;
+  }
+
+  .form-container .form-input {
+    width: 100%;
+  }
+
+  .form-container .query-option-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .form-container {
+    width: 80vw;
+    margin: 2rem auto;
+    box-sizing: border-box;
+  }
+
+  .form-container .name,
+  .form-container .email {
+    flex-direction: column;
+  }
+
+  // .form-container .general {
+  //   order: 1;
+  // }
+
+  // .form-container .support {
+  //   order: 2;
+  // }
+
+  // .form-container .message {
+  //   order: 3;
+  // }
+
+  .form-container .form-input {
+    margin-bottom: 1rem;
+  }
+
+  .form-container .queryOption {
+    flex-direction: column;
+  }
+
+  .form-container .query-option-item {
+    width: 93%;
+  }
+}

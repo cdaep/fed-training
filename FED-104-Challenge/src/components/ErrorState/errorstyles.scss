@@ -1,0 +1,23 @@
+.form-container .error-state {
+  font-family: var(--ff-variable);
+  font-size: 15px;
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+.form-container .error-border {
+  border-color: var(--red);
+}
+
+.form-container .form-input.error,
+.form-container .text-area.error {
+  border-color: var(--red);
+
+  &:hover {
+    border-color: var(--red);
+  }
+}
+
+textarea.text-area {
+  resize: none;
+}
