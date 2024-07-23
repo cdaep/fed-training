@@ -1,0 +1,67 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Define font faces */
+@font-face {
+  font-family: 'Karla Bold';
+  src: url('../src/assets/fonts/Karla-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla Regular';
+  src: url('../src/assets/fonts/Karla-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla Italic Variable';
+  src: url('../src/assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Karla Variable';
+  src: url('../src/assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Define root variables */
+:root {
+  --grey-medium: hsl(186, 15%, 59%);
+  --grey-darker: hsl(187, 24%, 22%);
+  --green-lighter: hsl(148, 38%, 91%);
+  --green-medium: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+  --white: hsl(0, 0%, 100%);
+  --ff-default: 'Karla', sans-serif; /* Default font family */
+  --ff-italic: 'Karla Italic Variable', sans-serif; /* Italic font family */
+  --ff-bold: 'Karla Bold', sans-serif; /* Bold font family */
+  --ff-variable: 'Karla Variable', sans-serif; /* Variable font family */
+  --checkbox-img: url("../public/icon-checkbox-check.svg");
+  --radiobutton-img: url("../public/icon-radio-selected.svg");
+}
+
+/* General HTML styling */
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+/* Body styling */
+body {
+  // @apply flex justify-center items-center m-0 bg-green-lighter min-h-screen font-default
+  font-family: var(--ff-default);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: var(--green-lighter);
+  min-height: 100vh;
+}
+
