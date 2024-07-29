@@ -1,0 +1,71 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Define font faces */
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('../src/assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins BoldItalic';
+  src: url('../src/assets/fonts/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins ExtraBold';
+  src: url('../src/assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins ExtraBoldItalic';
+  src: url('../src/assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins Italic';
+  src: url('../src/assets/fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins Regular';
+  src: url('../src/assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Define root variables */
+:root {
+  --off-white: hsl(0, 0%, 94%);
+  --iconarrow-img: url("../public/icon-arrow.svg");
+}
+
+/* General HTML styling */
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+/* Body styling */
+body {
+  // @apply flex justify-center items-center m-0 bg-off-whote min-h-screen 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: var(--off-white);
+  min-height: 100vh;
+}
+
+

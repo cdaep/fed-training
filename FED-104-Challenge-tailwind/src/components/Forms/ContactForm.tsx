@@ -1,5 +1,5 @@
 // ContactForm.tsx
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
@@ -74,7 +74,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
         setSubmitting(false);
       }}
     >
-      {({ errors, touched, handleChange, handleSubmit, resetForm, submitForm, isValid}) => {
+      {({ errors, touched, handleChange, resetForm, submitForm, isValid}) => {
+        if (Object.keys(errors).length > 0) {
+          setModalVariant(ModalVariant.Error);
+        }
         return (
           <Form className="m-8">
             <div className="flex gap-4 mb-4 md:flex-row max-xs:flex-col">
@@ -89,7 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   type="text"
                   name="fname"
                   id="fname"
-                  className={`w-full h-12 border rounded-md mb-2 p-4 cursor-pointer font-karla-variable focus:outline-none ${
+                  className={`w-full h-12 border rounded-md mb-2 p-4 font-karla-variable focus:outline-none ${
                     errors.fname
                       ? "border-red focus:border-red"
                       : "border-grey-medium focus:border-green-medium"
@@ -113,7 +116,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   type="text"
                   name="lname"
                   id="lname"
-                  className={`w-full h-12 border rounded-md mb-2 p-4 cursor-pointer font-karla-variable focus:outline-none ${
+                  className={`w-full h-12 border rounded-md mb-2 p-4 font-karla-variable focus:outline-none ${
                     touched.lname && errors.lname
                       ? "border-red focus:border-red"
                       : "border-grey-medium focus:border-green-medium"
@@ -139,7 +142,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 type="text"
                 name="email"
                 id="email"
-                className={`w-full h-12 border rounded-md mb-2 p-4 cursor-pointer font-karla-variable focus:outline-none ${
+                className={`w-full h-12 border rounded-md mb-2 p-4 font-karla-variable focus:outline-none ${
                   touched.email && errors.email
                     ? "border-red focus:border-red"
                     : "border-grey-medium focus:border-green-medium"
@@ -203,7 +206,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     {...field}
                     id="queryText"
                     rows={4}
-                    className={`w-full resize-none border rounded-md mb-2 p-4 cursor-pointer font-karla-variable focus:outline-none ${
+                    className={`w-full resize-none border rounded-md mb-2 p-4 font-karla-variable focus:outline-none ${
                       form.errors.queryText && form.touched.queryText
                         ? "border-red focus:border-red"
                         : "border-grey-medium focus:border-green-medium"
@@ -241,7 +244,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <Button
                 value="Submit"
                 variant={ButtonVariant.Primary}
-                onClick={submitForm}
+                onClick={() => {
+                  setShowModal(true);
+                  submitForm();
+                }}
               />
             </div>
 
