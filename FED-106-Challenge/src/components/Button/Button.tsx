@@ -1,14 +1,17 @@
 import React from 'react';
 import { ButtonVariant } from '../../enums/ButtonVariant';
 import { useColor } from '../ColorMode/ColorMode';
+import { IconProps } from "../../types/types";
 
 interface ButtonProps {
   title: string;
   variant: ButtonVariant;
+  icon: React.FC<IconProps>; 
+  iconProps?: IconProps;
   onClick: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ title, variant, onClick}) => {
+const Button: React.FC<ButtonProps> = ({ title, variant, icon: Icon, iconProps, onClick}) => {
   const {textColor, otherBgColor } = useColor();
     const getButtonStyle = (): string => {
       switch (variant) {
@@ -22,10 +25,11 @@ const Button: React.FC<ButtonProps> = ({ title, variant, onClick}) => {
       <div className="flex items-center justify-center"> 
       <button
             type = "button"
-            className={`${getButtonStyle()}`}
+            className={`flex items-center gap-1 ${getButtonStyle()}`}
             onClick={onClick}
             aria-label = "Custom button">
-              {title}
+              <Icon {...iconProps} /> 
+            <span>{title}</span>
         </button>
       </div>
     );

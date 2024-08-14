@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useColor } from "../ColorMode/ColorMode";
 import { useLocation, useNavigate } from "react-router-dom";
+import { IconLibrary } from '../../assets/Icons/IconLibrary';
 
 interface FilterProps {
   onFilterChange?: (region: string) => void;
@@ -51,20 +52,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         className={`w-48 h-12 px-3 py-2  ${otherBgColor} ${textColor} rounded shadow-custom font-nunito-sans text-sm flex items-center justify-between`}
       >
         {selectedOption || "Filter by Region"}
-        {/*temporary approach for the arrow only. Will fix this*/}
-        <svg
-          className="ml-3 w-5 h-5"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fillRule="evenodd"
-            d="M6.293 7.293a1 1 0 011.414 0L10 8.586l2.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <IconLibrary.FilterArrow width={16} height={16} className="ml-3" />
       </button>
 
       {isOpen && (

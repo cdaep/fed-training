@@ -20,35 +20,38 @@ const Countries: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
-
   const navigate = useNavigate();
-  const query = new URLSearchParams(useLocation().search);
+  const location = useLocation();
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const filter = query.get('filter') || "";
+    const region = query.get('region') || selectedRegion || "";
+
+    setSearchQuery(filter);
+    setSelectedRegion(region);
+  }, [location.search, selectedRegion]);
+
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const fields = ['name', 'population', 'region', 'capital', 'flags', 'cca3'];
-        const filter = query.get('filter') || "";
-        const region = query.get('region') || selectedRegion || "";
-
-        setSearchQuery(filter);
-        setSelectedRegion(region);
-        
         const data =  await getAllCountries(fields);
 
         let filteredData = data;
 
-        // Apply search filter
-        if (filter) {
+        // Apply search query filter
+        if (searchQuery) {
           filteredData = filteredData.filter(country =>
-            country.name.common.toLowerCase().includes(filter.toLowerCase())
+            country.name.common.toLowerCase().includes(searchQuery.toLowerCase())
           );
         }
 
         // Apply region filter
-        if (region) {
+        if (selectedRegion) {
           filteredData = filteredData.filter(country =>
-            country.region === region
+            country.region === selectedRegion
           );
         }
 
@@ -62,7 +65,7 @@ const Countries: React.FC = () => {
       }
     };
     fetchCountries();
-  }, [query, selectedRegion]);
+  }, [searchQuery, selectedRegion]);
 
   // Navigate to the route with cca3 parameter
   const handleImageClick = (cca3: string) => {
